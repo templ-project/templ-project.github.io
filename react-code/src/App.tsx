@@ -1,13 +1,13 @@
 import './App.css';
 
-import React, {ReactElement} from 'react';
+import {ReactElement} from 'react';
 
-import WithNavbar from './containers/page/WithNavbar';
+import Home from './containers/Home';
 
 function App(): ReactElement {
   return (
     <div className="App">
-      <WithNavbar />
+      <Home />
     </div>
   );
 }

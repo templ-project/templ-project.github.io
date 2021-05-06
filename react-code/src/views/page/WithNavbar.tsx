@@ -1,30 +1,26 @@
+import {Container} from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import {ReactElement} from 'react';
 
-import Page, {PageProps} from '../../views/Page';
-import Navbar from '../../views/page/Navbar';
-
-// import MenuIcon from '@material-ui/icons/Menu';
+import Navbar from '../body/Navbar';
+import Empty, {EmptyProps} from './Empty';
 
 export type WithNavbarClassKey = 'root';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface WithNavbarProps
   // extends StandardProps<React.HTMLAttributes<HTMLDivElement>, WithNavbarClassKey> {}
-  extends PageProps {}
+  extends EmptyProps {}
 
 function WithNavbar({children, ...props}: WithNavbarProps): ReactElement {
   return (
-    <Page {...props}>
+    <Empty {...props}>
       <Navbar />
-      {children}
-    </Page>
+      <Container maxWidth="lg">
+        <Paper elevation={0}>{children}</Paper>
+      </Container>
+    </Empty>
   );
-}
-
-{
-  /* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */
 }
 
 export default WithNavbar;

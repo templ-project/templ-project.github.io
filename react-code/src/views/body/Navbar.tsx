@@ -1,18 +1,8 @@
-import {
-  AppBar,
-  Button,
-  IconButton,
-  StandardProps,
-  Theme,
-  Toolbar,
-  Typography,
-  makeStyles,
-  withStyles,
-} from '@material-ui/core';
+import {AppBar, IconButton, StandardProps, Theme, Toolbar, Typography, makeStyles} from '@material-ui/core';
 import React, {ReactElement} from 'react';
 
 import {mergeStyles} from '../../utils/styles';
-import TemplIcon from '../../views/icons/Templ';
+import TemplIcon from '../icons/Templ';
 
 export type NavbarClassKey = 'root' | 'logo';
 
