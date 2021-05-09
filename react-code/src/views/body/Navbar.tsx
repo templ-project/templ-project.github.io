@@ -2,7 +2,7 @@ import {AppBar, IconButton, StandardProps, Theme, Toolbar, Typography, makeStyle
 import React, {ReactElement} from 'react';
 
 import {mergeStyles} from '../../utils/styles';
-import TemplIcon from '../icons/Templ';
+import TemplIcon from '../icons/24/Templ';
 
 export type NavbarClassKey = 'root' | 'logo';
 

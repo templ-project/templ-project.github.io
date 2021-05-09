@@ -2,64 +2,66 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import {StandardProps, Theme, Typography, makeStyles} from '@material-ui/core';
-import React, {ReactElement} from 'react';
-import Slider, {Settings} from 'react-slick';
+import React, {ReactElement, useEffect} from 'react';
+import Typed from 'typed.js';
 
 import {mergeStyles} from '../../utils/styles';
 
 export type IAmSliderClassKey = 'root' | 'item' | 'text' | 'textBold';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IAmSliderProps extends StandardProps<React.HTMLAttributes<HTMLDivElement>, IAmSliderClassKey> {
-  settings?: Settings;
   whatAmI?: string[];
 }
 
+function typedEffect(): void {
+  const typedElement = document.querySelector('#typed');
+  if (typedElement?.getAttribute('data-initialized') !== '1') {
+    new Typed('#typed', {
+      backDelay: 3000,
+      backSpeed: 20,
+      loop: true,
+      loopCount: Infinity,
+      startDelay: 1000,
+      stringsElement: '#typed-strings',
+      typeSpeed: 20,
+    });
+    typedElement?.setAttribute('data-initialized', '1');
+  }
+}
+
 function IAmSlider({
-  settings = {
-    autoplay: true,
-    arrows: false,
-    fade: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  },
   classes = {},
   whatAmI = ['Beautifier', 'Linter', 'Unittest', 'Analyzer'],
 }: IAmSliderProps): ReactElement {
   classes = mergeStyles(useStyles(), classes);
+
+  useEffect(typedEffect);
+
   return (
-    <Slider className={classes?.root} {...settings}>
-      {whatAmI.map((word) => (
-        <div className={classes?.item}>
-          <Typography className={classes?.text} variant="body1" component="span">
-            I am
-          </Typography>
-          <Typography className={classes?.textBold} variant="body1" component="span">
-            {word}
-          </Typography>
-        </div>
-      ))}
-    </Slider>
+    <div className={classes?.root}>
+      <div id="typed-strings">
+        {whatAmI.map((word) => (
+          <div className={classes?.item}>
+            <Typography className={classes?.text} variant="body1" component="span">
+              I am
+            </Typography>
+            <Typography className={classes?.textBold} variant="body1" component="span">
+              {word}
+            </Typography>
+          </div>
+        ))}
+      </div>
+      <div id="typed"></div>
+    </div>
   );
 }
-
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    // height: '300px',
-    // position: 'relative',
-    // overflow: 'hidden',
+    '& .typed-cursor': {
+      display: 'none',
+    },
   },
-  item: {
-    // background: 'blue',
-    // border: '1px blue solid',
-    // height: '200px',
-  },
-  text: {
-    // color: 'red',
-    // fontSize: '20px',
-  },
+  item: {},
+  text: {},
   textBold: {
     fontWeight: 'bold',
     paddingLeft: theme.spacing(0.5),

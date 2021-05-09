@@ -7,7 +7,7 @@ import Home from './containers/Home';
 function App(): ReactElement {
   return (
     <div className="App">
-      <Home />
+      <Home templatesUrl="/v1/templates.json" />
     </div>
   );
 }

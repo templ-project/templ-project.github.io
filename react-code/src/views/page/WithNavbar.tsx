@@ -10,12 +10,15 @@ export type WithNavbarClassKey = 'root';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface WithNavbarProps
   // extends StandardProps<React.HTMLAttributes<HTMLDivElement>, WithNavbarClassKey> {}
-  extends EmptyProps {}
+  extends EmptyProps {
+  header?: ReactElement;
+}
 
-function WithNavbar({children, ...props}: WithNavbarProps): ReactElement {
+function WithNavbar({children, header = <Paper />, ...props}: WithNavbarProps): ReactElement {
   return (
     <Empty {...props}>
       <Navbar />
+      {header}
       <Container maxWidth="lg">
         <Paper elevation={0}>{children}</Paper>
       </Container>

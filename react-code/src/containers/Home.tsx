@@ -1,17 +1,32 @@
-import {StandardProps, Theme, Typography, makeStyles, withStyles} from '@material-ui/core';
-import React, {ReactElement} from 'react';
+import {Button, StandardProps, Theme, Typography, makeStyles, withStyles} from '@material-ui/core';
+import {Container} from '@material-ui/core';
+import React, {ReactElement, useEffect, useState} from 'react';
 
+import {TemplateEntity, fetchData} from '../utils/api';
 import {mergeStyles} from '../utils/styles';
-import DetailedTempl from '../views/icons/DetailedTempl';
-import WithNavbar from '../views/page/WithNavbar';
+import Header from '../views/body/Header';
+import GithubIcon from '../views/icons/24/Github';
+import DetailedTempl from '../views/icons/64/DetailedTempl';
+import TemplateList from '../views/page/home/TemplateList';
+import WithNavbar, {WithNavbarProps} from '../views/page/WithNavbar';
 import IAmSlider from '../views/slider/IAmSlider';
 
-// export type HomeProps = WithNavbarProps;
+export interface HomeProps extends WithNavbarProps {
+  templatesUrl: string;
+}
 
-function Home(): ReactElement {
+function Home({templatesUrl, ...props}: HomeProps): ReactElement {
+  const [templateList, setTemplateList] = useState<TemplateEntity[]>([]);
+
+  useEffect(() => {
+    if (templateList.length === 0) {
+      fetchData<TemplateEntity>(templatesUrl).then(setTemplateList);
+    }
+  }, [templateList.length, templatesUrl]);
+
   return (
-    <WithNavbar>
-      <HomeBanner />
+    <WithNavbar header={<Header children={<HomeBanner />} />} {...props}>
+      <TemplateList list={templateList} />
     </WithNavbar>
   );
 }
@@ -29,8 +44,9 @@ export interface HomeBannerProps extends StandardProps<React.HTMLAttributes<HTML
 
 export function HomeBanner({classes = {}}: HomeBannerProps): ReactElement {
   classes = mergeStyles(useHomeBannerStyles(), classes);
+
   return (
-    <div className={classes?.root}>
+    <Container maxWidth="lg" className={classes?.root}>
       <div className={classes?.logo}>
         <DetailedTempl />
       </div>
@@ -42,14 +58,24 @@ export function HomeBanner({classes = {}}: HomeBannerProps): ReactElement {
         <Typography variant="body1" component="p">
           A collection of templates to start your projects easier.
         </Typography>
+        <Button
+          color="secondary"
+          href="https://github.com/templ-project"
+          size="large"
+          startIcon={<GithubIcon />}
+          target="_blank"
+          variant="contained"
+        >
+          View on Github
+        </Button>
       </div>
-    </div>
+    </Container>
   );
 }
 
 const useHomeBannerStyles = makeStyles((theme: Theme) => ({
   root: {
-    border: '1px red solid',
+    alignItems: 'center',
     display: 'flex',
     height: '300px',
     marginTop: '20px',
@@ -65,12 +91,25 @@ const useHomeBannerStyles = makeStyles((theme: Theme) => ({
     },
   },
   content: {
+    color: 'white',
     width: '80%',
+    '& h2': {
+      fontWeight: 'bold',
+    },
+    '& p': {
+      fontSize: '1.25rem',
+      fontWeight: 100,
+    },
   },
 }));
 
 const StyledIAmSlider = withStyles({
-  root: {
-    // width: '80%',
+  text: {
+    fontSize: '2rem',
+    fontWeight: 100,
+  },
+  textBold: {
+    fontSize: '2rem',
+    fontWeight: 500,
   },
 })(IAmSlider);

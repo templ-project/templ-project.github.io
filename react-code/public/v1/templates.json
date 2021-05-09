@@ -1,0 +1,45 @@
+[{
+  "avatar": "nodejs",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "babel",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "typescript",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "coffeescript",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "react",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "nestjs",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "gnu",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "go",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "go",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "python",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}, {
+  "avatar": "python",
+  "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "title": "Node.js"
+}]
