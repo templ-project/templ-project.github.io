@@ -1,10 +1,21 @@
+/* eslint-disable sonar/max-union-size */
 interface Entity {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
 export interface TemplateEntity extends Entity {
-  avatar: string;
-  description: string;
+  avatar:
+    | 'babel'
+    | 'coffeescript'
+    | 'description'
+    | 'gnu'
+    | 'go'
+    | 'nestjs'
+    | 'nodejs'
+    | 'python'
+    | 'react'
+    | 'typescript';
 }
 
 type ResponseHandler = (response: Response) => Response;

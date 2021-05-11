@@ -1,45 +1,56 @@
 [{
   "avatar": "nodejs",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
+  "link": "https://github.com/templ-project/node",
   "title": "Node.js"
 }, {
   "avatar": "babel",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/node-babel",
+  "title": "Node.js (Babel)"
 }, {
   "avatar": "typescript",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/node-typescript",
+  "title": "Node.js (TypeScript)"
 }, {
   "avatar": "coffeescript",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/node-coffeescript",
+  "title": "Node.js (CoffeeScript)"
 }, {
   "avatar": "react",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/react-typescript",
+  "title": "React (TypeScript)"
 }, {
   "avatar": "nestjs",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/nestjs",
+  "title": "Nest.js"
 }, {
   "avatar": "gnu",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/gnu",
+  "title": "Gnu (Makefile)"
 }, {
   "avatar": "go",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/go",
+  "title": "Go (Module)"
 }, {
   "avatar": "go",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/go",
+  "title": "Go (App)"
 }, {
   "avatar": "python",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/python",
+  "title": "Python (Module)"
 }, {
   "avatar": "python",
   "description": "A generic template, based on Makefile, extendable in any other projects.",
-  "title": "Node.js"
+  "link": "https://github.com/templ-project/python",
+  "title": "Python (App)"
 }]
